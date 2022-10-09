@@ -125,6 +125,10 @@ export default {
 
             this.songList.map(v => v.isActive = false);
             this.songList[song.id].isActive = true;
+        },
+
+        getSongList() {
+            return this.songList;
         }
     }
 };

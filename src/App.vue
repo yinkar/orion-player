@@ -10,6 +10,8 @@ export default {
                 name: null,
             },
             isMounted: false,
+            currentTime: '00:00',
+            duration: '00:00',
         }
     },
     components: {
@@ -21,10 +23,36 @@ export default {
             this.$refs.playerElement.playSong(song);
 
             this.currentSong = song;
+        },
+
+        nextSong(randomNumber = 1) {
+            const playlist = this.$refs.playlistElement.getSongList();
+
+            this.$refs.playlistElement.playSong(
+                playlist.at((this.currentSong.id + randomNumber) % playlist.length)
+            );
+        },
+
+        prevSong() {
+            const playlist = this.$refs.playlistElement.getSongList();
+
+            this.$refs.playlistElement.playSong(
+                playlist.at(this.currentSong.id - 1)
+            );
+        },
+
+        updateTimes(currentTime, duration) {
+            const format = seconds => {
+                const date = new Date(null);
+                date.setSeconds(seconds);
+
+                return date.toISOString().substring(14, 19);
+            };
+
+            this.currentTime = format(currentTime);
+            this.duration = format(duration);
         }
     },
-    mounted() {
-    }
 };
 </script>
 
@@ -52,13 +80,13 @@ export default {
                 {{currentSong.name}}
             </div>
             <div class="time">
-                0:20 - 2:29
+                {{currentTime}} - {{duration}}
             </div>
         </div>
 
-        <Player ref="playerElement" />
+        <Player ref="playerElement" :nextSongCallback="nextSong" :prevSongCallback="prevSong" :updateTimesCallback="updateTimes" />
 
-        <Playlist :playSongCallback="runPlayer" />
+        <Playlist ref="playlistElement" :playSongCallback="runPlayer" />
     </div>
 </template>
 
@@ -115,7 +143,9 @@ export default {
 }
 
 .info .time {
-    width: 100px;
+    width: 180px;
     height: 23px;
+    text-align: right;
+    padding-right: 14px;
 }
 </style>
