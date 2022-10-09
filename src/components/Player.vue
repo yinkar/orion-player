@@ -53,21 +53,22 @@ export default {
         setTime(e) {
             if (
                 [
-                    'progress-inner', 
+                    'progress', 
                     'previous'
                 ].some(v => e.target.classList.contains(v))
             ) {
-                this.$refs.player.currentTime = this.duration * e.offsetX / 434;
+                this.$refs.player.currentTime = Math.max(this.duration * e.offsetX, 434) / 434;
             }
         },
 
         setVolume(e) {
             if (
                 [
-                    'volume-progress-inner', 
+                    'volume-progress', 
                     'volume-previous'
                 ].some(v => e.target.classList.contains(v))
             ) {
+                console.log(e.offsetX);
                 this.$refs.player.volume = e.offsetX / 133;
             }
         },
@@ -257,6 +258,7 @@ export default {
     top: 0;
     width: calc(434px - 33px);
     height: 100%;
+    pointer-events: none;
 }
 
 .progress .previous {
@@ -308,6 +310,7 @@ export default {
     top: 0;
     width: calc(133px - 13px);
     height: 100%;
+    pointer-events: none;
 }
 
 .volume-progress .volume-previous {
