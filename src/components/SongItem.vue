@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <div class="song-item" @click="handleItem(song)" :class="{ active: isActive }">
+    <div :title="song.name" class="song-item" @click="handleItem(song)" :class="{ active: isActive }">
         {{song.name}}
     </div>
 </template>
@@ -29,6 +29,7 @@ export default {
         padding: 13px 14px;
         margin-bottom: 4px;
         font-size: 18px;
+        overflow-x: hidden;
     }
 
     .song-item:hover {

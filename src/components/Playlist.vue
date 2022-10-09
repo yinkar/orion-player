@@ -87,50 +87,50 @@ export default {
 </template>
 
 <style scoped>
-  .playlist-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 42px;
-    width: 100%;
-    background-color: #303030;
-    padding: 7px;
-    box-sizing: border-box;
-  }
+.playlist-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 42px;
+  width: 100%;
+  background-color: #303030;
+  padding: 7px;
+  box-sizing: border-box;
+}
 
-  .open-songs-button {
-    padding: 0;
-    cursor: pointer;
-    height: 29px;
-    width: 37px;
-    border: none;
-    background: none;
-    background-color: #585858;
-    border-radius: 5px;
-  }
+.open-songs-button {
+  padding: 0;
+  cursor: pointer;
+  height: 29px;
+  width: 37px;
+  border: none;
+  background: none;
+  background-color: #585858;
+  border-radius: 5px;
+}
 
-  .open-songs-button:hover, .open-songs-button:active {
-    background-color: #777;
-  }
+.open-songs-button:hover, .open-songs-button:active {
+  background-color: #777;
+}
 
-  .open-songs-button > svg {
-    width: 20px;
-    height: 30px;
-    fill: #fff;
-  }
+.open-songs-button > svg {
+  width: 20px;
+  height: 30px;
+  fill: #fff;
+}
 
-  .playlist-container {
-    height: 408px;
-    width: 439px;
-    background-color: #3c3c3c;
-    position: relative;
-    margin-top: 20px;
-  }
+.playlist-container {
+  height: 408px;
+  width: 439px;
+  background-color: #3c3c3c;
+  position: relative;
+  margin-top: 20px;
+}
 
-  .playlist {
-    margin-bottom: 42px;
-    overflow: auto;
-    max-height: calc(408px - 42px);
-    width: 100%;
-  }
+.playlist {
+  margin-bottom: 42px;
+  overflow: auto;
+  max-height: calc(408px - 42px);
+  width: 100%;
+}
 </style>
