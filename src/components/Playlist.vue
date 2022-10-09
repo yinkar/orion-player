@@ -44,6 +44,11 @@ export default {
             this.$refs.openSongs.click();
         },
 
+        clearPlaylist() {
+            this.songList.length = 0;
+            localStorage.clear();
+        },
+
         pickSongs(e) {
             const songs = [];
 
@@ -134,7 +139,7 @@ export default {
         </div>
 
         <div class="playlist-bottom">
-            <button class="open-songs-button" @click="openSongsWindow">
+            <button class="open-songs-button playlist-button" @click="openSongsWindow">
                 <svg class="svg-icon" viewBox="0 0 20 20">
                     <path
                         d="M17.927,5.828h-4.41l-1.929-1.961c-0.078-0.079-0.186-0.125-0.297-0.125H4.159c-0.229,0-0.417,0.188-0.417,0.417v1.669H2.073c-0.229,0-0.417,0.188-0.417,0.417v9.596c0,0.229,0.188,0.417,0.417,0.417h15.854c0.229,0,0.417-0.188,0.417-0.417V6.245C18.344,6.016,18.156,5.828,17.927,5.828 M4.577,4.577h6.539l1.231,1.251h-7.77V4.577z M17.51,15.424H2.491V6.663H17.51V15.424z">
@@ -144,6 +149,12 @@ export default {
 
             <input name="open-songs-input" id="open-songs-input" type="file" multiple="multiple" v-show="false"
                 ref="openSongs" @change="pickSongs" />
+
+            <button class="clear-playlist-button playlist-button" @click="clearPlaylist">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 25">
+                    <path d="M19 14.586l3.586-3.586 1.414 1.414-3.586 3.586 3.586 3.586-1.414 1.414-3.586-3.586-3.586 3.586-1.414-1.414 3.586-3.586-3.586-3.586 1.414-1.414 3.586 3.586zm-7 6.414h-12v-2h12v2zm0-4.024h-12v-2h12v2zm0-3.976h-12v-2h12v2zm12-4h-24v-2h24v2zm0-4h-24v-2h24v2z"/>
+                </svg>
+            </button>
         </div>
 
     </div>
@@ -161,7 +172,7 @@ export default {
     box-sizing: border-box;
 }
 
-.open-songs-button {
+.playlist-button {
     padding: 0;
     cursor: pointer;
     height: 29px;
@@ -170,14 +181,15 @@ export default {
     background: none;
     background-color: #585858;
     border-radius: 5px;
+    margin-right: 8px;
 }
 
-.open-songs-button:hover,
-.open-songs-button:active {
+.playlist-button:hover,
+.playlist-button:active {
     background-color: #777;
 }
 
-.open-songs-button>svg {
+.playlist-button>svg {
     width: 20px;
     height: 30px;
     fill: #fff;

@@ -1,5 +1,12 @@
-:root {
-
+* {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html, body {
@@ -9,8 +16,4 @@ html, body {
     font-size: 18px;
     color: #fff;
     font-family: sans-serif;
-}
-
-@media (prefers-color-scheme: light) {
-  
 }
