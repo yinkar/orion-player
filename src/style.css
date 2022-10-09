@@ -1,0 +1,16 @@
+:root {
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #252525;
+    font-size: 18px;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  
+}
