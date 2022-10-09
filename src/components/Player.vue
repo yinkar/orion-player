@@ -96,6 +96,7 @@ export default {
     left: 0;
     top: 0;
     height: 100%;
+    transition: 350ms ease width;
 }
 
 .progress .indicator {
@@ -106,9 +107,6 @@ export default {
     top: calc(-33px / 2 + 21px / 2);
     border-radius: 50%;
     left: 0;
-}
-
-.progress .indicator, .progress .previous {
-    transition: 350ms ease all;
+    transition: 350ms ease left;
 }
 </style>
