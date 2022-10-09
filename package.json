@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@foobar404/wave": "^2.0.3",
     "jdataview": "^2.5.0",
     "vue": "^3.2.37"
   },

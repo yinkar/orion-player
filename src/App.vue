@@ -1,4 +1,6 @@
 <script>
+import { Wave } from '@foobar404/wave';
+
 import Playlist from './components/Playlist.vue';
 import Player from './components/Player.vue';
 
@@ -53,6 +55,18 @@ export default {
             this.duration = format(duration);
         }
     },
+    mounted() {
+        let wave = new Wave(
+            this.$refs.playerElement.$refs.player,
+            this.$refs.barsElement
+        );
+
+        wave.addAnimation(new wave.animations.Lines({
+            lineWidth: 10,
+            lineColor: 'darkorange',
+            count: 15,
+        }));
+    },
 };
 </script>
 
@@ -63,15 +77,16 @@ export default {
             <div class="preview">
 
                 <div class="cover">
-                    <svg width="191" height="127" viewBox="0 0 191 127" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="191" height="127" fill="#D9D9D9" />
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M169.198 0L3.28764 127H0V0L169.198 0Z"
-                            fill="#E1E1E1" />
+                    <svg width="191" height="118" viewBox="0 0 191 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="191" height="118" fill="#222222"/>
+                        <path d="M120.558 18.0822L76.2505 29.1692C75.0516 29.4693 74.1538 30.5944 74.1538 31.858C74.1538 58.7907 74.1538 54.7663 74.1538 83.0642C71.8365 81.6657 68.9649 80.826 65.8461 80.826C58.2109 80.826 52 85.7993 52 91.913C52 98.0267 58.2109 103 65.8461 103C73.4814 103 79.6923 98.0267 79.6923 91.913V50.6528L118.462 40.9517V66.4339C116.144 65.0352 113.273 64.1953 110.154 64.1953C102.519 64.1953 96.3077 69.1687 96.3077 75.2824C96.3077 81.3962 102.519 86.3694 110.154 86.3694C117.789 86.3694 124 81.3961 124 75.2824C124 56.3549 124 39.7095 124 20.771C124 18.9991 122.321 17.6469 120.558 18.0822Z" fill="white" fill-opacity="0.23"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M153.949 0L3.00552 118H0V0H153.949Z" fill="white" fill-opacity="0.13"/>
                     </svg>
+
                 </div>
             </div>
             <div class="bars">
-
+                <canvas width="191" height="127" ref="barsElement"></canvas>
             </div>
         </div>
 
@@ -113,7 +128,8 @@ export default {
 }
 
 .preview .cover svg {
-    width: 191px;
+    width: 186px;
+    padding-left: 3px;
     height: 127px;
 }
 
