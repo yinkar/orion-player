@@ -47,9 +47,10 @@ export default {
 
         setTime(e) {
             if (
-                e.target.classList.contains('progress-inner') || 
-                e.target.classList.contains('previous') 
-                
+                [
+                    'progress-inner', 
+                    'previous'
+                ].some(v => e.target.classList.contains(v))
             ) {
                 this.$refs.player.currentTime = this.duration * e.offsetX / 434;
             }
@@ -57,9 +58,10 @@ export default {
 
         setVolume(e) {
             if (
-                e.target.classList.contains('volume-progress-inner') || 
-                e.target.classList.contains('volume-previous') 
-                
+                [
+                    'volume-progress-inner', 
+                    'volume-previous'
+                ].some(v => e.target.classList.contains(v))
             ) {
                 this.$refs.player.volume = e.offsetX / 133;
             }
@@ -78,13 +80,6 @@ export default {
     },
     mounted() {
         this.isMounted = true;
-
-        if (this.$refs.player.paused) {
-            this.playing = false;
-        }
-        else {
-            this.playing = true;
-        }
     }
 };
 </script>
