@@ -67,7 +67,7 @@ export default {
                 newDimensionRate = window.innerHeight / this.height;
             }
             
-            this.$refs.container.style.transform = `scale(${newDimensionRate}, ${newDimensionRate})`;
+            this.$refs.container.style.transform = `scale(${newDimensionRate}, ${newDimensionRate}) translateX(-${this.width / 10}px)`;
         },
     },
     mounted() {
