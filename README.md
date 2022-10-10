@@ -1,3 +1,6 @@
 # Orion Player
+A simple music player that based on Vue.
 
-A simple music player
+## Screenshot
+![Orion Player Screenshot](screenshot.gif)
+

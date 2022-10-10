@@ -77,6 +77,8 @@ export default {
         },
 
         playPause() {
+            if (this.$refs.player.readyState === 0) return;
+
             if (this.$refs.player.paused) {
                 this.$refs.player.play();
                 this.playing = true;

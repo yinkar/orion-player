@@ -14,31 +14,7 @@ export default {
             songList: [],
         };
     },
-    mounted() {
-        if (typeof(Storage) !== 'undefined') {
-            try {
-                let storedPlaylist = JSON.parse(localStorage.getItem('playlist'));
-
-                if (storedPlaylist) {
-                    storedPlaylist = storedPlaylist.map((v, i, a) => {
-                        return {
-                            id: i,
-                            name: v.name,
-                            isActive: v.isActive,
-                            content: localStorage.getItem(`song-${i}`),
-                        };
-                    });
-
-                    if (!!storedPlaylist) {
-                        this.songList.push(...storedPlaylist);
-                    }
-                }
-            }
-            catch(err) {
-                
-            }
-        }
-    },
+    
     methods: {
         openSongsWindow(e) {
             this.$refs.openSongs.click();
@@ -46,7 +22,6 @@ export default {
 
         clearPlaylist() {
             this.songList.length = 0;
-            localStorage.clear();
         },
 
         pickSongs(e) {
@@ -63,8 +38,6 @@ export default {
 
             this.songList.push(...songs);
 
-            this.saveToLocalStorage(this.songList);
-
             this.songList.forEach((v, i, a) => {
                 this.setContent(v.file, i);
             });
@@ -77,51 +50,9 @@ export default {
             reader.readAsDataURL(file);
             reader.onload = () => {
                 this.songList[index].content = reader.result;
-
-                if(reader.result.length < parseInt(5242878 * .9)) {
-                    try {                    
-                        localStorage.setItem(`song-${index}`, reader.result);
-                    }
-                    catch(err) {
-
-                    }
-                }
-                else {
-                    const storedPlaylist = Array.from(JSON.parse(
-                        localStorage.getItem('playlist')
-                    ));
-
-                    try {
-                        localStorage.setItem(
-                            'playlist', 
-                            JSON.stringify(
-                                storedPlaylist.filter((v, i, a) => parseInt(i) !== parseInt(index))
-                            )
-                        );
-                    }
-                    catch (err) {
-                        
-                    }
-                }
             }
             reader.onerror = err => {
-                console.error('Error:', err);
-            }
-        },
-
-        saveToLocalStorage(songList) {
-            if (typeof(Storage) !== 'undefined') {
-                localStorage.setItem(
-                    'playlist', 
-                    JSON.stringify(songList.map(e => {
-                        return {
-                                id: e.id,
-                                isActive: e.isActive,
-                                name: e.name
-                            };
-                        }
-                    ))
-                );
+                
             }
         },
 

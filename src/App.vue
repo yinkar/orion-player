@@ -14,6 +14,8 @@ export default {
             isMounted: false,
             currentTime: '00:00',
             duration: '00:00',
+            width: 500,
+            height: 753,
         }
     },
     components: {
@@ -53,7 +55,20 @@ export default {
 
             this.currentTime = format(currentTime);
             this.duration = format(duration);
-        }
+        },
+
+        resizeApp() {
+            let newDimensionRate = 1;
+
+            if (window.innerWidth / window.innerHeight < this.width / this.height) {
+                newDimensionRate = window.innerWidth / this.width;
+            }
+            else {
+                newDimensionRate = window.innerHeight / this.height;
+            }
+            
+            this.$refs.container.style.transform = `scale(${newDimensionRate}, ${newDimensionRate})`;
+        },
     },
     mounted() {
         let wave = new Wave(
@@ -69,12 +84,23 @@ export default {
                 }
             )
         );
+
+        this.resizeApp();
     },
+    created() {
+        window.addEventListener('keydown', e => {
+            if(e.key === ' ' && e.target === document.body) {
+                e.preventDefault();
+            }
+        });
+
+        window.addEventListener('resize', this.resizeApp);
+    }
 };
 </script>
 
 <template>
-    <div id="container">
+    <div id="container" ref="container">
         <div class="top">
 
             <div class="preview">
@@ -111,7 +137,12 @@ export default {
 <style>
 #container {
     width: 500px;
+    height: 753px;
     padding: 27px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(100vh / 2 - 753px / 2);
+    box-sizing: border-box;
 }
 
 .top {
