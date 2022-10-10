@@ -79,7 +79,12 @@ export default {
                 this.songList[index].content = reader.result;
 
                 if(reader.result.length < parseInt(5242878 * .9)) {
-                    localStorage.setItem(`song-${index}`, reader.result);
+                    try {                    
+                        localStorage.setItem(`song-${index}`, reader.result);
+                    }
+                    catch(err) {
+                        
+                    }
                 }
                 else {
                     const storedPlaylist = Array.from(JSON.parse(
@@ -93,6 +98,8 @@ export default {
                                 storedPlaylist.filter((v, i, a) => parseInt(i) !== parseInt(index))
                             )
                         );
+
+                        this.songList.map((v, i, a) => v.id = i);
                     }
                     catch (err) {
                         
@@ -186,6 +193,7 @@ export default {
     background-color: #585858;
     border-radius: 5px;
     margin-right: 8px;
+    transition: 70ms ease-in-out background-color;
 }
 
 .playlist-button:hover,

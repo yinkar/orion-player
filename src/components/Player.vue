@@ -22,7 +22,9 @@ export default {
             const source = this.$refs.audioSource;
             const player = this.$refs.player;
 
+            source.type = song.content?.split(';').at(0).split(':').at(1);
             source.src = song.content;
+            
             player.load();
             player.play();
         },
@@ -68,9 +70,10 @@ export default {
                     'volume-previous'
                 ].some(v => e.target.classList.contains(v))
             ) {
-                console.log(e.offsetX);
                 this.$refs.player.volume = e.offsetX / 133;
             }
+
+            this.currentVolume = this.$refs.player.volume;
         },
 
         playPause() {
@@ -344,6 +347,7 @@ export default {
     background-color: #585858;
     border-radius: 5px;
     padding-top: 2px;
+    transition: 70ms ease-in-out background-color;
 }
 
 .panel button:hover,

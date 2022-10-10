@@ -61,11 +61,14 @@ export default {
             this.$refs.barsElement
         );
 
-        wave.addAnimation(new wave.animations.Lines({
-            lineWidth: 10,
-            lineColor: 'darkorange',
-            count: 15,
-        }));
+        wave.addAnimation(
+            new wave.animations.Lines({
+                    lineWidth: 10,
+                    lineColor: 'darkorange',
+                    count: 15,
+                }
+            )
+        );
     },
 };
 </script>
