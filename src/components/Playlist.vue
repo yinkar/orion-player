@@ -83,7 +83,7 @@ export default {
                         localStorage.setItem(`song-${index}`, reader.result);
                     }
                     catch(err) {
-                        
+
                     }
                 }
                 else {
@@ -98,8 +98,6 @@ export default {
                                 storedPlaylist.filter((v, i, a) => parseInt(i) !== parseInt(index))
                             )
                         );
-
-                        this.songList.map((v, i, a) => v.id = i);
                     }
                     catch (err) {
                         
