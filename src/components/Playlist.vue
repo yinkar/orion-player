@@ -138,7 +138,7 @@ export default {
 
 .playlist-container {
     height: 320px;
-    width: 387px;
+    width: 360px;
     background-color: #3c3c3c;
     position: relative;
     margin-top: 10px;
@@ -147,7 +147,7 @@ export default {
 .playlist {
     margin-bottom: 42px;
     overflow: auto;
-    max-height: calc(383px - 42px);
+    max-height: calc(360px - 42px);
     width: 100%;
 }
 </style>
