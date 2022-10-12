@@ -70,7 +70,7 @@ export default {
                     'volume-previous'
                 ].some(v => e.target.classList.contains(v))
             ) {
-                this.$refs.player.volume = e.offsetX / 133;
+                this.$refs.player.volume = e.offsetX / 100;
             }
 
             this.currentVolume = this.$refs.player.volume;
@@ -250,10 +250,10 @@ export default {
 }
 
 .progress {
-    width: 407px;
+    width: 352px;
     background-color: #5e5e5e;
     position: relative;
-    margin: 10px 0;
+    margin: 10px 5px;
     cursor: pointer;
 }
 
@@ -261,7 +261,7 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(407px - 33px);
+    width: calc(352px - 33px);
     height: 100%;
     pointer-events: none;
 }
@@ -289,10 +289,21 @@ export default {
 
 .panel {
     display: flex;
-    width: 407px;
+    width: 352px;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0 10px 0;
+}
+.panel>div {
+    width: 120px;
+}
+
+div.volume {
+    width: 100px;
+}
+
+div.list-options {
+    width: 100px;
 }
 
 .volume-progress,
@@ -302,7 +313,7 @@ export default {
 }
 
 .volume-progress {
-    width: 133px;
+    width: 100px;
     background-color: #5e5e5e;
     position: relative;
     margin: 10px 0;
@@ -313,7 +324,7 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(133px - 13px);
+    width: calc(100px - 13px);
     height: 100%;
     pointer-events: none;
 }
@@ -363,15 +374,11 @@ export default {
     fill: #fff;
 }
 
-.panel>div {
-    width: 133px;
-}
-
 .player-controls {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 407px;
+    width: 382px;
 }
 
 .player-controls button {

@@ -76,7 +76,7 @@ export default {
 
         wave.addAnimation(
             new wave.animations.Lines({
-                    lineWidth: 10,
+                    lineWidth: 8,
                     lineColor: 'darkorange',
                     count: 15,
                 }
@@ -113,7 +113,7 @@ export default {
                 </div>
             </div>
             <div class="bars">
-                <canvas width="191" height="127" ref="barsElement"></canvas>
+                <canvas width="154" height="100" ref="barsElement"></canvas>
             </div>
         </div>
 
@@ -134,7 +134,8 @@ export default {
 
 <style>
 #container {
-    width: 413px;
+    width: 358px;
+    overflow: hidden;
     padding: 27px 0;
     margin-left: auto;
     margin-right: auto;
@@ -145,34 +146,37 @@ export default {
 .top {
     display: flex;
     justify-content: space-between;
-    width: 417px;
+    width: 358px;
     margin: 0 0 12px 0;
 }
 
 .preview,
 .bars {
     background-color: #444;
-    padding: 10px 8px;
-    width: 209px;
-    height: 145px;
+    width: 170px;
+    height: 114px;
     box-sizing: border-box;
 }
 
 .preview .cover svg {
-    width: 186px;
-    padding-left: 3px;
-    height: 127px;
+    width: 145px;
+    padding: 13px;
+    height: auto;
+}
+
+.bars {
+    padding: 0 0 5px 6px;
 }
 
 .info {
     display: flex;
     justify-content: space-between;
     font-size: 18px;
-    width: 417px;
+    width: 360px;
 }
 
 .info .name {
-    width: 200px;
+    width: 210px;
     height: 23px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -190,7 +194,7 @@ export default {
 }
 
 .info .time {
-    width: 180px;
+    width: 138px;
     height: 23px;
     text-align: right;
     padding-right: 14px;
