@@ -250,7 +250,7 @@ export default {
 }
 
 .progress {
-    width: 434px;
+    width: 407px;
     background-color: #5e5e5e;
     position: relative;
     margin: 10px 0;
@@ -261,7 +261,7 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    width: calc(434px - 33px);
+    width: calc(407px - 33px);
     height: 100%;
     pointer-events: none;
 }
@@ -289,7 +289,7 @@ export default {
 
 .panel {
     display: flex;
-    width: 434px;
+    width: 407px;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0 10px 0;
@@ -371,6 +371,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 407px;
 }
 
 .player-controls button {

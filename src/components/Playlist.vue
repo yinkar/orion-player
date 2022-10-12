@@ -137,8 +137,8 @@ export default {
 }
 
 .playlist-container {
-    height: 408px;
-    width: 439px;
+    height: 320px;
+    width: 412px;
     background-color: #3c3c3c;
     position: relative;
     margin-top: 20px;

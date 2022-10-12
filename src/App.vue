@@ -14,8 +14,6 @@ export default {
             isMounted: false,
             currentTime: '00:00',
             duration: '00:00',
-            width: 500,
-            height: 753,
         }
     },
     components: {
@@ -56,18 +54,18 @@ export default {
             this.currentTime = format(currentTime);
             this.duration = format(duration);
         },
-
+        
         resizeApp() {
             let newDimensionRate = 1;
 
-            if (window.innerWidth / window.innerHeight < this.width / this.height) {
-                newDimensionRate = window.innerWidth / this.width;
+            if (window.innerWidth / window.innerHeight < this.$refs.container.offsetWidth / this.$refs.container.offsetHeight) {
+                newDimensionRate = window.innerWidth / this.$refs.container.offsetWidth;
             }
             else {
-                newDimensionRate = window.innerHeight / this.height;
+                newDimensionRate = window.innerHeight / this.$refs.container.offsetHeight;
             }
             
-            this.$refs.container.style.transform = `scale(${newDimensionRate}, ${newDimensionRate}) translateX(-${this.width / 10}px)`;
+            this.$refs.container.style.transform = `scale(${newDimensionRate}, ${newDimensionRate})`;
         },
     },
     mounted() {
@@ -84,7 +82,7 @@ export default {
                 }
             )
         );
-
+        
         this.resizeApp();
     },
     created() {
@@ -136,19 +134,18 @@ export default {
 
 <style>
 #container {
-    width: 500px;
-    height: 753px;
-    padding: 27px;
+    width: 413px;
+    padding: 27px 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: calc(100vh / 2 - 753px / 2);
+    margin-top: calc(100vh / 2 - 665px / 2);
     box-sizing: border-box;
 }
 
 .top {
     display: flex;
     justify-content: space-between;
-    width: 444px;
+    width: 417px;
     margin: 0 0 12px 0;
 }
 
@@ -171,7 +168,7 @@ export default {
     display: flex;
     justify-content: space-between;
     font-size: 18px;
-    width: 454px;
+    width: 417px;
 }
 
 .info .name {
