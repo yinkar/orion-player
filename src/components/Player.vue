@@ -54,12 +54,9 @@ export default {
 
         setTime(e) {
             if (
-                [
-                    'progress', 
-                    'previous'
-                ].some(v => e.target.classList.contains(v))
+                [ 'progress' ].some(v => e.target.classList.contains(v))
             ) {
-                this.$refs.player.currentTime = Math.max(this.duration * e.offsetX, 434) / 434;
+                this.$refs.player.currentTime = Math.max(this.duration * e.offsetX, e.target.clientWidth) / e.target.clientWidth;
             }
         },
 
