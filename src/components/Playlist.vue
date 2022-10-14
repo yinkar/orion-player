@@ -142,6 +142,7 @@ export default {
     background-color: #3c3c3c;
     position: relative;
     margin-top: 10px;
+    padding-bottom: 42px;
 }
 
 .playlist {
@@ -149,5 +150,20 @@ export default {
     overflow: auto;
     max-height: calc(360px - 42px);
     width: 100%;
+}
+
+.playlist::-webkit-scrollbar-track {
+    border-radius: 0.125rem;
+    background-color: transparent;
+}
+
+.playlist::-webkit-scrollbar {
+    border-radius: 0.125rem;
+    width: 0.25rem;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    border-radius: 0.125rem;
+    background-color: gray;
 }
 </style>
